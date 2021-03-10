@@ -1343,6 +1343,6 @@ export class TestComponent implements OnInit {
 ##### 特性指令
 
 属性指令执行 DOM 元素或组件的外观或行为。
-其中一些例子是NgStyle，NgClass 和NgStyle。
+其中一些例子是 `NgStyle`，`NgClass` 和 `NgStyle`。
 而，NgModel 是前一章中解释的双向属性数据绑定。
 
