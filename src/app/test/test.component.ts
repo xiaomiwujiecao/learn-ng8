@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-test',
@@ -11,11 +11,36 @@ export class TestComponent implements OnInit {
   myCSSClass = 'red';
   applyCSSClass = false;
   myStyle = 'brown';
-  constructor() { }
+  isLogIn = false;
+  isLogOut = true;
+  list = [1, 2, 3, 4, 5];
+  students = [
+    {
+      id: 1,
+      name: 'student1'
+    },
+    {
+      id: 2,
+      name: 'student2'
+    },
+    {
+      id: 3, name: 'student3'
+    },
+    {
+      id: 4,
+      name: 'student4'
+    }
+  ];
+  logInName = 'admin';
+  constructor() {
+  }
 
   ngOnInit() {
   }
-
+  trackByData(index: number, student: any): number {
+    console.log('student:', student);
+    return student.id;
+  }
   showData($event: any) {
     console.log('button is clicked');
     if ($event) {

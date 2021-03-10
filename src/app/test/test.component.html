@@ -5,3 +5,35 @@
 <p [class]="myCSSClass">This paragraph class comes from *myClass* property </p>
 <p [class.blue]="applyCSSClass">This paragraph class does not apply</p>
 <p [style.color]="myStyle">Text color is styled using style binding</p>
+<input type="text" [(ngModel)]="userName">
+<p>Two way binding! Hello {{ userName }}!</p>
+<p>ngIfElse example!</p>
+<div *ngIf="isLogIn; else isLogOut">
+  Hello you are logged in
+</div>
+<ng-template #isLogOut>
+  You're logged out..
+</ng-template>
+<h2>ngFor directive</h2>
+<ul>
+  <li *ngFor="let l of list">
+    {{l}}
+  </li>
+</ul>
+<ul>
+  <li *ngFor="let std of students; trackBy: trackByData">
+    {{std.name}}
+  </li>
+</ul>
+<h2>ngSwitch directive</h2>
+<ul [ngSwitch]="logInName">
+  <li *ngSwitchCase="'user'">
+    <p>User is logged in..</p>
+  </li>
+  <li *ngSwitchCase="'admin'">
+    <p>admin is logged in</p>
+  </li>
+  <li *ngSwitchDefault>
+    <p>Please choose login name</p>
+  </li>
+</ul>

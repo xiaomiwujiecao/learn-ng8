@@ -717,7 +717,7 @@ ng serve
 
 让我们了解简单的按钮单击甚至处理如何工作。
 
-在test.component.ts文件中添加以下代码，如下所示：
+在test.component.ts文件中添加以下代码,如下所示：
 
 ```js
 export class TestComponent {
@@ -736,11 +736,11 @@ event∗refersthefiredevent⋅Inthisscenario,∗click∗istheevent⋅∗
 
 事件具有有关事件和目标元素的所有信息。
 
-在这里，target 是按钮。
+在这里,target 是按钮。
 
 $event.target 属性将具有目标信息。
 
-我们有两种方法可以调用 component 方法进行查看（test.component.html）。
+我们有两种方法可以调用 component 方法进行查看(test.component.html)。
 
 第一个定义如下-
 
@@ -749,16 +749,16 @@ $event.target 属性将具有目标信息。
 <button (click)="showData($event)">Click here</button>
 ````
 
-另外，您可以使用前缀-使用如下所示的规范形式-
+另外,您可以使用前缀-使用如下所示的规范形式-
 
 ```html
 
 <button on-click="showData()">Click here</button>
 ```
 
-在这里，我们没有使用`$event`，因为它是可选的。
+在这里,我们没有使用`$event`,因为它是可选的。
 
-最后，使用以下命令启动您的应用程序（如果尚未完成）-
+最后,使用以下命令启动您的应用程序(如果尚未完成)-
 
 ```shell
 ng serve
@@ -781,19 +781,21 @@ export class TestComponent {
 }
 ```
 
-在test.component.html视图中添加以下更改，
+在test.component.html视图中添加以下更改,
 
 ```html
 
 <input type="text" [value]="userName">
 ```
-在这里，userName属性绑定到DOM元素标记的属性。
 
-最后，使用以下命令启动您的应用程序（如果尚未完成）-
+在这里,userName属性绑定到DOM元素标记的属性。
+
+最后,使用以下命令启动您的应用程序(如果尚未完成)-
 
 ```shell
 ng serve  
 ```
+
 #### 特性绑定
 
 属性绑定用于将组件中的数据绑定到HTML属性。
@@ -801,21 +803,24 @@ ng serve
 语法如下-
 
 ```html
+
 <HTMLTag [attr.ATTR]="Component data">
 ```
 
 如：
 
 ```html
-<td [attr.colspan]="columnSpan"> ... </td>
+
+<td [attr.colspan]="columnSpan"> ...</td>
 ```
+
 我们用一个简单的例子来理解。
 
 在 test.component.ts 文件中添加以下代码。
 
 ```js
-export class TestComponent { 
-   userName:string = "Peter"; 
+export class TestComponent {
+  userName: string = "Peter";
 }
 ```
 
@@ -826,36 +831,39 @@ export class TestComponent {
 语法如下-
 
 ```html
+
 <HTMLTag [class]="component variable holding class name">
 ```
 
-类绑定提供其他功能。
+类绑定提供其他函数。
 
-如果组件数据为布尔值，则仅当该类为`true`时，该类才会绑定。
+如果组件数据为布尔值,则仅当该类为`true`时,该类才会绑定。
 
-可以通过字符串（“ foo bar”）以及字符串数组提供多个类。
+可以通过字符串(' foo bar”)以及字符串数组提供多个类。
 
 还有更多选择。
 
-例如，
+例如,
 
 ```html
 <p [class]="myClasses">
 ```
+
 让我们用一个简单的例子来理解。
 
-将以下代码添加到test.component.ts文件中，
+将以下代码添加到test.component.ts文件中,
 
 ```js
-export class TestComponent { 
-   myCSSClass = "red"; 
-   applyCSSClass = false; 
+export class TestComponent {
+  myCSSClass = "red";
+  applyCSSClass = false;
 }
 ```
+
 在视图test.component.html中添加以下更改。
 
 ```html
-<p [class]="myCSSClass">This paragraph class comes from *myClass* property </p> 
+<p [class]="myCSSClass">This paragraph class comes from*myClass* property </p>
 <p [class.blue]="applyCSSClass">This paragraph class does not apply</p>
 ```
 
@@ -866,8 +874,10 @@ export class TestComponent {
 语法如下-
 
 ```html
+
 <HTMLTag [style.STYLE]="component data">
 ```
+
 如：
 
 ```html
@@ -881,8 +891,458 @@ export class TestComponent {
 ```js
 myColor = 'brown';
 ```
+
 在视图test.component.html中添加以下更改
 
 ```html
 <p [style.color]="myColor">Text color is styled using style binding</p>
 ```
+
+#### 双向数据绑定
+
+双向数据绑定是双向交互,数据以两种方式流动(从组件到视图以及从视图到组件)。
+
+一个简单的例子是ngModel。
+
+如果对属性(或模型)进行了任何更改,则更改将反映在视图中,反之亦然。
+
+它是属性和事件绑定的组合。
+
+##### NgModel
+
+NgModel是一个独立的指令。
+
+ngModel指令将表单控件绑定到属性,并将属性绑定到表单控件。
+
+ngModel的语法如下-
+
+```html
+
+<HTML [(ngModel)]="model.name"/>
+```
+
+如：
+
+```html
+<input type="text" [(ngModel)]="model.name"/>
+```
+
+我们尝试在测试应用程序中使用 ngModel。
+
+在AppModule中配置FormsModule(src/app/app.module.ts)
+
+```js
+import {FormsModule} from '@angular/forms';
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule
+  ]
+})
+export class AppModule {
+}
+```
+
+FormModule需做必要的设置方可启用双向数据绑定。
+
+如下所述更新TestComponent视图(test.component.html)-
+
+```html
+<input type="text" [(ngModel)]="userName"/>
+<p>Two way binding! Hello {{ userName }}!</p>
+```
+
+该属性绑定到表单控件ngModel 指令,如果在文本框中输入任何文本, 它将绑定到该属性。
+
+运行应用程序后,您可以看到以下更改- 现在,尝试将输入值更改为Jack。
+
+键入时,输入下方的文本将更改,最终输出将如下所示-
+
+##### 工作示例
+
+让我们在 ExpenseManager 应用程序中实现本章中学习的所有概念。
+
+打开命令提示符,然后转到项目根文件夹。 创建 ExpenseEntry 接口(src/app/expense-entry.ts)。 并添加ID,金额,类别,位置,花费和创建时间。
+
+将 ExpenseEntry 导入 ExpenseEntryComponent 。
+
+```ts
+import {ExpenseEntry} from '../expense-entry';
+```
+
+创建一个 ExpenseEntry 对象, expenseEntry ,如下所示-
+
+```ts
+export class ExpenseEntryComponent implements OnInit {
+  title: string;
+  expenseEntry: ExpenseEntry;
+
+  constructor() {
+  }
+
+  ngOnInit() {
+    this.title = "Expense Entry";
+    this.expenseEntry = {
+      id: 1,
+      item: "Pizza",
+      amount: 21,
+      category: "Food",
+      location: "Zomato",
+      spendOn: new Date(2020, 6, 1, 10, 10, 10), createdOn: new Date(2020, 6, 1, 10, 10, 10),
+    };
+  }
+}
+```
+
+按照以下指定的方式使用 ExpenseEntry 对象 src/app/expense-entry/expense-entry.component.html 更新组件模板-
+
+```angular2html
+<!-- Page Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-center" style="padding-top: 20px;">
+      <div class="container" style="padding-left: 0px; padding-right: 0px;">
+        <div class="row">
+          <div class="col-sm" style="text-align: left;">
+            {{ title }}
+          </div>
+          <div class="col-sm" style="text-align: right;">
+            <button type="button" class="btn btn-primary">Edit</button>
+          </div>
+        </div>
+      </div>
+      <div class="container box" style="margin-top: 10px;">
+        <div class="row">
+          <div class="col-2" style="text-align: right;">
+            <strong><em>Item:</em></strong>
+          </div>
+          <div class="col" style="text-align: left;">
+            {{ expenseEntry.item }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2" style="text-align: right;">
+            <strong><em>Amount:</em></strong>
+          </div>
+          <div class="col" style="text-align: left;">
+            {{ expenseEntry.amount }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2" style="text-align: right;">
+            <strong><em>Category:</em></strong>
+          </div>
+          <div class="col" style="text-align: left;">
+            {{ expenseEntry.category }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2" style="text-align: right;">
+            <strong><em>Location:</em></strong>
+          </div>
+          <div class="col" style="text-align: left;">
+            {{ expenseEntry.location }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2" style="text-align: right;">
+            <strong><em>Spend On:</em></strong>
+          </div>
+          <div class="col" style="text-align: left;">
+            {{ expenseEntry.spendOn }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+### 指令
+
+Angular 8指令是与您的应用程序进行交互的DOM元素。
+
+通常,伪指令是 TypeScript 函数。
+
+当此函数执行时,Angular 编译器会在 DOM 元素中对其进行检查。
+
+Angular 指令以`ng-`开头,其中`ng`代表 `Angular` ,并使用`@directive`装饰器扩展`HTML`标签。
+
+指令使逻辑可以包含在 `Angular` 模板中。
+
+Angular 指令可以分为三类,它们如下-
+
+#### 属性指令
+
+用于为现有HTML元素添加新属性以更改其外观和行为。
+
+```html
+
+<HTMLTag [attrDirective]='value'/>
+```
+
+如:
+
+```html
+<p [showToolTip]='Tips'/>
+```
+
+这里,`showToolTip` 引用了一个示例指令,该指令在HTML元素中使用时,当用户将HTML元素悬停时将显示提示。
+
+#### 结构指令
+
+用于在当前 `HTML` 文档中添加或删除 `DOM` 元素。
+
+````html
+
+<HTMLTag [structuralDirective]='value'/>
+````
+
+如：
+
+```html
+
+<div*ngIf="isNeeded">
+Only render if the*isNeeded* value has true value.
+</div>
+```
+
+> `ngIf` 是一个内置指令,用于添加或删除当前HTML文档中的HTML元素。
+
+Angular提供了许多内置指令,我们将在后面的章节中学习。
+
+#### 基于组件的指令
+
+组件可以用作指令。
+
+每个组件都有'输入和输出”选项,可以在组件及其父HTML元素之间传递。
+
+```html
+
+<component-selector-name [input-reference]="input-value"> ...</component-selector-name>
+```
+
+如：
+
+```html
+
+<list-item [items]="fruits"> ...</list-item>
+```
+
+在此,列表项是一个组件,items 是输入项。
+
+在后面的章节中,我们将学习如何创建组件和高级用法。
+
+在进入本主题之前,让我们在 Angular 8 中创建一个示例应用程序(directive-app)来进行学习。
+
+打开命令提示符并使用以下命令创建新的 Angular 应用程序-
+
+```shell
+ng generate component test
+```
+
+#### DOM概述
+
+让我们简单地看一下 DOM 模型。
+
+DOM 用于定义访问文档的标准。
+
+通常,HTML DOM 模型被构造为对象树。
+
+它是访问 html 元素的标准对象模型。
+
+出于以下原因,我们可以在 Angular 8 中使用 DOM 模型
+
+- 我们可以轻松地使用DOM元素切换文档结构。
+
+- 我们可以轻松添加 html 元素。
+
+- 我们可以轻松地更新元素及其内容。
+
+#### 结构指令
+
+结构化指令结构化指令通过添加或删除元素来更改 `DOM` 的结构。
+
+它由带有三个预定义指令 `NgIf` ,`NgFor` 和 `NgSwitch` 的*符号表示。
+
+让我们简要地一个一个地了解。
+
+##### NgIf 指令
+
+`NgIf` 指令用于根据条件变为true或false来显示或隐藏应用程序中的数据。
+
+我们可以将其添加到模板中的任何标签中。
+
+让我们在指令应用程序应用程序中尝试 `ngIf` 指令。
+
+在 `test.component.html` 中添加以下标记。
+
+```html
+<p>test works!</p>
+<div*ngIf="true">Display data</div>
+```
+
+将测试组件添加到您的app.component.html文件中,如下所示：
+
+```html
+
+<app-test></app-test>
+```
+
+如果设置条件ngIf =' false”,则内容将被隐藏。
+
+#### ngIfElse 指令
+
+ngIfElse 与 ngIf 相似,不同之处在于,它还提供在失败情况下呈现内容的选项。
+
+让我们通过样本来了解 ngIfElse 的工作原理。
+
+在 test.component.ts 文件中添加以下代码。
+
+```ts
+export class TestComponent implements OnInit {
+  isLogIn: boolean = false;
+  isLogOut: boolean = true;
+}
+```
+
+isLogOut 值分配为 true,因此它转到 els e块并呈现 ng-template。
+
+我们将在本章后面学习ng-template。
+
+##### ngFor 指令
+
+`ngFor` 用于重复项列表中的一部分元素。
+
+让我们通过示例来了解 `ngFor` 的工作原理。
+
+将列表添加到 test.component.ts 文件中,如下所示-
+
+```html
+<h2>ngFor directive</h2>
+<ul>
+  <li
+    *ngFor="let l of list">
+    {{l}}
+  </li>
+</ul>
+```
+
+在test.component.html中添加ngFor指令,如下所示-
+
+```html
+<h2>ngFor directive</h2>
+<ul>
+  <li
+    *ngFor="let l of list">
+    {{l}}
+  </li>
+</ul>
+```
+
+在这里,`let` 关键字创建一个局部变量,可以在模板中的任何地方引用它。
+
+让我创建一个模板局部变量来获取列表元素。
+
+##### trackBy
+
+有时,对于大型列表,ngFor 性能会很低。
+
+例如,当添加新项目或删除列表中的任何项目时,可能会触发几种 `DOM` 操作。
+
+要遍历大型对象集合,我们使用 `trackBy`。
+
+- 它用于跟踪何时添加或删除元素。
+
+- 它是通过 `trackBy` 方法执行的。
+
+- 它有两个参数 index 和 element 。
+
+- 索引用于唯一标识每个元素。
+
+下面定义了一个简单的示例。
+
+让我们通过示例来了解 `trackBy` 与 `ngFor` 一起工作的方式。
+
+在test.component.ts文件中添加以下代码。
+
+```ts
+
+export class TestComponent {
+  studentArr: any[] = [{
+    "id": 1,
+    "name": "student1"
+  },
+    {
+      "id": 2,
+      "name": "student2"
+    },
+    {
+      "id": 3, "name": "student3"
+    },
+    {
+      "id": 4,
+      "name": "student4"
+    }
+  ];
+
+  trackByData(index: number, studentArr: any): number {
+    return studentArr.id;
+  }
+```
+
+我们已经创建了`trackByData()`方法,以基于id的唯一方式访问每个学生元素。
+
+在test.component.html文件中添加以下代码,以在ngFor内定义trackBy方法。
+
+```html
+
+<ul>
+  <li *ngFor="let std of studentArr; trackBy: trackByData">
+    {{std.name}}
+  </li>
+</ul>
+```
+
+在这里，应用程序将打印学生姓名。
+
+现在，该应用程序正在使用学生ID而不是对象引用来跟踪学生对象。
+
+因此，`DOM` 元素不受影响。
+
+##### NgSwitch指令
+
+NgSWitch 用于检查多个条件，并使 DOM 结构保持简单易懂。
+
+让我们在指令应用程序应用程序中尝试 `ngSwitch` 指令。
+
+在test.component.ts文件中添加以下代码。
+
+```ts
+export class TestComponent implements OnInit {  
+   logInName = 'admin'; 
+}
+```
+在test.component.html文件中添加以下代码，如下所示：
+
+```html
+<h2>ngSwitch directive</h2> 
+<ul [ngSwitch]="logInName"> 
+   <li *ngSwitchCase="'user'"> 
+      <p>User is logged in..</p> 
+   </li> 
+   <li *ngSwitchCase="'admin'"> 
+      <p>admin is logged in</p> 
+   </li> 
+   <li *ngSwitchDefault> 
+      <p>Please choose login name</p> 
+   </li> 
+</ul>
+```
+##### 特性指令
+
+属性指令执行 DOM 元素或组件的外观或行为。
+其中一些例子是NgStyle，NgClass 和NgStyle。
+而，NgModel 是前一章中解释的双向属性数据绑定。
+
