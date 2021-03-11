@@ -4,12 +4,14 @@ import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ExpenseEntryComponent } from './expense-entry/expense-entry.component';
 import { TestComponent } from './test/test.component';
+import { CustomstyleDirective } from './customstyle.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     ExpenseEntryComponent,
-    TestComponent
+    TestComponent,
+    CustomstyleDirective
   ],
   imports: [
     BrowserModule,

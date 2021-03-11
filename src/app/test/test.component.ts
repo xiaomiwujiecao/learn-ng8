@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {User} from '../user';
 
 @Component({
   selector: 'app-test',
@@ -32,15 +33,28 @@ export class TestComponent implements OnInit {
     }
   ];
   logInName = 'admin';
+  users: User[] = [
+    {
+      userId: 1,
+      userName: 'User1'
+    },
+    {
+      userId: 2,
+      userName: 'User2'
+    }
+  ];
+
   constructor() {
   }
 
   ngOnInit() {
   }
+
   trackByData(index: number, student: any): number {
     console.log('student:', student);
     return student.id;
   }
+
   showData($event: any) {
     console.log('button is clicked');
     if ($event) {

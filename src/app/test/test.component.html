@@ -37,3 +37,10 @@
     <p>Please choose login name</p>
   </li>
 </ul>
+<p [ngStyle]="{'color':'blue','font-size':'14px'}"> paragraph style is applied using ngStyle </p>
+<br>
+
+<div *ngFor="let user of users" [ngClass]="{'highlight':user.userName==='User1'}">
+  {{user.userName}}
+</div>
+<p appCustomstyle>font size 24px!!!!</p>

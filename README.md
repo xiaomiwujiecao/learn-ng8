@@ -676,7 +676,7 @@ ng generate component test
 
 将以下代码添加到test.component.ts文件中,如下所示：
 
-```js
+```ts
 export class TestComponent implements OnInit {
   appName = "My first app in Angular 8";
 }
@@ -963,7 +963,8 @@ FormModule需做必要的设置方可启用双向数据绑定。
 
 让我们在 ExpenseManager 应用程序中实现本章中学习的所有概念。
 
-打开命令提示符,然后转到项目根文件夹。 创建 ExpenseEntry 接口(src/app/expense-entry.ts)。 并添加ID,金额,类别,位置,花费和创建时间。
+打开命令提示符,然后转到项目根文件夹。 
+创建 ExpenseEntry 接口(src/app/expense-entry.ts)。 并添加ID,金额,类别,位置,花费和创建时间。
 
 将 ExpenseEntry 导入 ExpenseEntryComponent 。
 
@@ -1342,7 +1343,16 @@ export class TestComponent implements OnInit {
 ```
 ##### 特性指令
 
-属性指令执行 DOM 元素或组件的外观或行为。
+属性指令控制 DOM 元素或组件的外观或行为。
 其中一些例子是 `NgStyle`，`NgClass` 和 `NgStyle`。
-而，NgModel 是前一章中解释的双向属性数据绑定。
+而，`NgModel` 是前一章中解释的双向属性数据绑定。
 
+##### ngStyle
+
+`ngStyle` 指令用于添加动态样式。
+
+下面的示例用于将蓝色应用于段落。
+
+让我们在指令应用程序应用程序中尝试ngStyle指令。
+
+在test.component.html文件中添加以下内容。
