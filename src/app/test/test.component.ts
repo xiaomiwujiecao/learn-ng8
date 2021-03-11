@@ -43,6 +43,8 @@ export class TestComponent implements OnInit {
       userName: 'User2'
     }
   ];
+  Fruits = ['mango', 'apple', 'orange', 'grapes'];
+  name = 'Peter';
 
   constructor() {
   }

@@ -44,3 +44,16 @@
   {{user.userName}}
 </div>
 <p appCustomstyle>font size 24px!!!!</p>
+<h3>ng-template</h3>
+<ng-template>ng-template tag is a virtual element</ng-template>
+<ng-template [ngIf]=true>
+  <div><h2>ng-template works!</h2></div>
+</ng-template>
+<div>
+  <ng-template ngFor let-item [ngForOf]="Fruits" let-i="index">
+    <p>{{i}}</p>
+    <p>{{item}}</p>
+  </ng-template>
+</div>
+<h1>Test component</h1>
+<app-child [userName]="name"></app-child>
